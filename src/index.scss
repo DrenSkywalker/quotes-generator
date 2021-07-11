@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Almendra+Display&display=swap");
+
+$font: "Alegreya Sans SC", sans-serif;
+
+$cl-eggplant: #533747;
+$cl-englishviolet: #5f506b;
+$cl-englishviolet-opacity: rgba(95, 80, 107, 0.5);
+$cl-pewterblue: #76949f;
+$cl-greensheen: #86bbbd;
+
+$cl-indipendence: #3a405a;
+$cl-lightsteelblue: rgba(174, 197, 235, 0.8);
+$cl-lightsteelblue-opacity: rgba(174, 197, 235, 0.3);
+$cl-melon: #e9afa3;
+$cl-unbleachedsilk: #f9dec9;
+
+$cl-bluesapphire: #2e6171;
+$cl-cadet: #556f7a;
+$cl-cadet-opacity: rgba(85, 111, 122, 0.5);
+$cl-wheat: #e6d3a3;
+$cl-lightyellow: #f6fedb;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+#home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+
+  &.red {
+    background: $cl-eggplant;
+
+    #quote-container {
+      #quote-content {
+        &::before {
+          background: $cl-greensheen;
+        }
+
+        #quote {
+          &::before,
+          &::after {
+            color: $cl-pewterblue;
+          }
+        }
+      }
+
+      #author {
+        color: $cl-pewterblue;
+      }
+
+      #button {
+        background: $cl-englishviolet;
+
+        &:hover {
+          background: $cl-englishviolet-opacity;
+        }
+      }
+    }
+  }
+
+  &.indaco {
+    background: $cl-indipendence;
+
+    #quote-container {
+      #quote-content {
+        &::before {
+          background: $cl-unbleachedsilk;
+        }
+
+        #quote {
+          &::before,
+          &::after {
+            color: $cl-melon;
+          }
+        }
+      }
+
+      #author {
+        color: $cl-melon;
+      }
+
+      #button {
+        background: $cl-lightsteelblue;
+
+        &:hover {
+          background: $cl-lightsteelblue-opacity;
+        }
+      }
+    }
+  }
+
+  &.blue {
+    background: $cl-bluesapphire;
+
+    #quote-container {
+      #quote-content {
+        &::before {
+          background: $cl-lightyellow;
+        }
+
+        #quote {
+          &::before,
+          &::after {
+            color: $cl-wheat;
+          }
+        }
+      }
+
+      #author {
+        color: $cl-wheat;
+      }
+
+      #button {
+        background: $cl-cadet;
+
+        &:hover {
+          background: $cl-cadet-opacity;
+        }
+      }
+    }
+  }
+
+  #quote-container {
+    max-width: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    z-index: 1;
+
+    #quote-content {
+      position: relative;
+
+      #quote {
+        position: relative;
+        color: white;
+        font-size: 20px;
+        font-family: $font;
+        line-height: 40px;
+        letter-spacing: 1px;
+
+        &::first-line {
+          text-indent: 25px;
+        }
+
+        &::before,
+        &::after {
+          position: absolute;
+          font-size: 60px;
+        }
+
+        &::before {
+          content: "“";
+          transform: translate(-25px, 5px);
+        }
+
+        &::after {
+          content: "”";
+          transform: translate(10px, 5px);
+        }
+      }
+    }
+
+    #author {
+      font-size: 18px;
+      font-family: $font;
+    }
+
+    #button {
+      padding: 10px 20px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: $font;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 500ms background ease;
+    }
+  }
+
+  #image {
+    width: 200%;
+    position: fixed;
+    bottom: 0;
+    fill: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* ----------------------------- */
+/* -------- MEDIA QUERY -------- */
+/* ----------------------------- */
+@media screen and (min-width: 768px) {
+  #home {
+    #quote-container {
+      max-width: 500px;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      #quote-content {
+        flex: 1 1 100%;
+
+        &::before {
+          content: "";
+          width: 5px;
+          height: 100%;
+          position: absolute;
+          transform: translateX(-20px);
+        }
+
+        #quote {
+          font-size: 25px;
+        }
+      }
+
+      #author {
+        font-size: 20px;
+
+        &::before {
+          content: "❯";
+          margin-right: 10px;
+        }
+      }
+    }
+
+    #image {
+      width: 120%;
+    }
+  }
+}
