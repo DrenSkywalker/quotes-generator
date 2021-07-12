@@ -1,6 +1,6 @@
 # Read me
 
-A minimal quotes generator built in React.
+A minimal quotes generator built with React.
 
 ## 🧙 How does it work
 
