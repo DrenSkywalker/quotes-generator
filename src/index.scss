@@ -161,24 +161,20 @@ h2 {
         line-height: 40px;
         letter-spacing: 1px;
 
-        &::first-line {
-          text-indent: 25px;
-        }
-
         &::before,
         &::after {
-          position: absolute;
-          font-size: 60px;
+          font-size: 30px;
+          line-height: 0;
         }
 
         &::before {
           content: "“";
-          transform: translate(-25px, 5px);
+          padding-right: 10px;
         }
 
         &::after {
           content: "”";
-          transform: translate(10px, 5px);
+          padding-left: 10px;
         }
       }
     }
